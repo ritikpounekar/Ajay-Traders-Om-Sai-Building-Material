@@ -1,0 +1,375 @@
+<!doctype html>
+<!--
+  ==================================================================
+  KAISE BADLEIN (padhkar hi badalna):
+
+  1. Hindi / English:  har text ke do roop likhe hain, ek ke baad ek:
+        <span class="hi">हिंदी text</span><span class="en">English text</span>
+     Dono ko alag-alag badal sakte hain. Hindi pehle dikhti hai.
+
+  2. Phone number, malik, worker, top ki slideshow, photo-patti:
+     inke liye is file mein kuch nahi karna. Sab  config.js  mein hai.
+
+  3. Naya saaman jodna ho: "सामान" section mein koi ek
+     <article class="good"> ... </article> poora copy karke uske neeche paste karo.
+
+  4. Rang badalne hon: style.css ke sabse upar :root mein.
+  ==================================================================
+-->
+<html lang="hi" data-lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Title aur description: data-en mein English likha hai, language badalne par wahi lagta hai -->
+  <title data-en="Ajay Traders & Om Sai Building Material, Multai (Betul) | TMT Steel, UltraTech Cement, Sanitary, Tiles">अजय ट्रेडर्स और ओम साई बिल्डिंग मटेरियल, मुलताई (बैतूल) | TMT सरिया, UltraTech सीमेंट, सेनेटरी, टाइल्स</title>
+  <meta name="description" id="meta-desc" data-en="Building material shop on Railway Station Road, Multai: GK TMT steel bars, UltraTech cement, JK White Cement, Jaquar sanitary fittings, tiles, AAC blocks, pipe fittings and Vectus water tanks. Call or WhatsApp for rates." content="मुलताई, रेलवे स्टेशन रोड पर बिल्डिंग मटेरियल की दुकान: GK TMT सरिया, UltraTech सीमेंट, JK व्हाइट सीमेंट, Jaquar सेनेटरी, टाइल्स, AAC ब्लॉक, पाइप फिटिंग और Vectus वॉटर टैंक। रेट के लिए कॉल या WhatsApp करें।">
+  <meta name="theme-color" content="#1B1F23">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google ke liye dukan ki jaankari (HardwareStore) script.js khud config.js se bana deta hai -->
+</head>
+<body>
+
+<a class="skip" href="#rate"><span class="hi">रेट पूछने के फ़ॉर्म पर जाएँ</span><span class="en">Skip to the rate form</span></a>
+
+<!-- =============== HEADER =============== -->
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">
+      <!-- Dono naam barabar. Naam badalna ho to config.js mein shopName, aur yahan -->
+      <span class="bn"><span class="hi">अजय ट्रेडर्स</span><span class="en">Ajay Traders</span></span>
+      <span class="bn"><span class="hi">ओम साई बिल्डिंग मटेरियल</span><span class="en">Om Sai Building Material</span></span>
+    </a>
+    <nav aria-label="Menu">
+      <a href="#dukaan"><span class="hi">दुकान</span><span class="en">Shop</span></a>
+      <a href="#saman"><span class="hi">सामान</span><span class="en">Products</span></a>
+      <a href="#rate"><span class="hi">रेट पूछें</span><span class="en">Get rates</span></a>
+      <a href="#malik"><span class="hi">मालिक</span><span class="en">Owners</span></a>
+      <a href="#photos"><span class="hi">फ़ोटो</span><span class="en">Photos</span></a>
+      <a href="#pata"><span class="hi">पता</span><span class="en">Address</span></a>
+    </nav>
+
+    <!-- हिंदी / English बदलने का बटन -->
+    <div class="lang" role="group" aria-label="भाषा / Language">
+      <button type="button" data-setlang="hi" aria-pressed="true" lang="hi">हिं</button>
+      <button type="button" data-setlang="en" aria-pressed="false" lang="en">EN</button>
+    </div>
+
+    <a class="call-chip" href="#" data-call="main"><span class="hi">कॉल करें</span><span class="en">Call</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- =============== HERO: upar photo-slideshow (config.js ke slides se chalti hai) =============== -->
+  <section class="hero">
+    <div class="hero-photo slider" id="slider" role="region" aria-roledescription="carousel" aria-label="दुकान की फ़ोटो / Shop photos">
+      <div class="slides" id="slides">
+        <!-- Pehli photo yahan likhi hai taaki JS band ho tab bhi dikhe. Baaki sab JS jodti hai. -->
+        <div class="slide is-active"><img src="images/dukaan-samne.jpg" width="1800" height="1350" alt="UltraTech बिल्डिंग सोल्यूशन्स के पीले बोर्ड वाली दुकान" style="object-position:50% 40%"></div>
+      </div>
+      <div class="slide-ui">
+        <p class="slide-cap" id="slide-cap" aria-live="off"></p>
+        <div class="slide-ctl">
+          <button type="button" class="sbtn" id="s-prev" data-aria-hi="पिछली फ़ोटो" data-aria-en="Previous photo" aria-label="पिछली फ़ोटो">&#8249;</button>
+          <div class="dots" id="dots"></div>
+          <button type="button" class="sbtn" id="s-next" data-aria-hi="अगली फ़ोटो" data-aria-en="Next photo" aria-label="अगली फ़ोटो">&#8250;</button>
+          <button type="button" class="sbtn sbtn-pp" id="s-pp" data-aria-hi="फ़ोटो चलना रोकें" data-aria-en="Pause slideshow" aria-label="फ़ोटो चलना रोकें">II</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-copy wrap">
+      <div class="hero-text">
+        <p class="kicker"><span class="hi">रेलवे स्टेशन रोड, मुलताई (बैतूल)</span><span class="en">Railway Station Road, Multai (Betul)</span></p>
+        <h1><span class="hi">घर बनाने का सारा सामान, एक ही जगह</span><span class="en">All your building material, under one roof</span></h1>
+        <p class="lede"><span class="hi">TMT सरिया, UltraTech सीमेंट, टाइल्स, सेनेटरी, वॉटर टैंक और पाइप फिटिंग। सब कुछ एक ही दुकान पर।</span><span class="en">TMT steel bars, UltraTech cement, tiles, sanitaryware, water tanks and pipe fittings. Everything at one shop.</span></p>
+        <div class="actions">
+          <a class="btn btn-yellow" href="#rate"><span class="hi">रेट पूछें</span><span class="en">Get rates</span></a>
+          <a class="btn btn-ghost" href="#" data-call="main"><span class="hi">कॉल करें: </span><span class="en">Call: </span><span data-phone-text="main"></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rebar" aria-hidden="true"></div>
+
+  <!-- =============== BRANDS =============== -->
+  <section class="brands" aria-label="Brands">
+    <div class="wrap brand-row">
+      <p class="brand-lead"><span class="hi">हमारे पास मिलने वाले ब्रांड</span><span class="en">Brands we sell</span></p>
+      <ul>
+        <li>GK TMT</li>
+        <li>UltraTech</li>
+        <li>JK White Cement</li>
+        <li>Jaquar</li>
+        <li>Vectus</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =============== DUKAAN + SAMPARK =============== -->
+  <section class="section" id="dukaan">
+    <div class="wrap">
+      <h2><span class="hi">हमारी दुकान</span><span class="en">Our shop</span></h2>
+      <p class="intro"><span class="hi">रेलवे स्टेशन रोड, मुलताई पर। नींव से लेकर बाथरूम तक, घर के लिए जो भी चाहिए, एक ही दुकान पर मिल जाता है।</span><span class="en">On Railway Station Road, Multai. From the foundation to the bathroom, everything your home needs is available at one shop.</span></p>
+
+      <figure class="street">
+        <img src="images/dukaan-samne.jpg" width="1700" height="1275" alt="रेलवे स्टेशन रोड, मुलताई पर दुकान और Vectus वॉटर टैंक" data-alt-hi="रेलवे स्टेशन रोड, मुलताई पर दुकान और Vectus वॉटर टैंक" data-alt-en="The shop on Railway Station Road, Multai, with Vectus water tanks" loading="lazy">
+      </figure>
+
+      <div class="shops">
+        <article class="shop shop-ajay">
+          <h3><span class="hi">अजय ट्रेडर्स</span><span class="en">Ajay Traders</span></h3>
+          <p class="shop-what"><span class="hi">TMT बार स्टील, टाइल्स, सेनेटरी, व्हाइट सीमेंट, AAC ब्लॉक, पाइप फिटिंग, वॉटर टैंक और बहुत कुछ।</span><span class="en">TMT steel bars, tiles, sanitaryware, white cement, AAC blocks, pipe fittings, water tanks and much more.</span></p>
+          <ul class="people">
+            <li>
+              <div>
+                <b><span class="hi">अजय शर्मा</span><span class="en">Ajay Sharma</span></b>
+                <span>91710 17533</span>
+              </div>
+              <div class="pbtn">
+                <a href="tel:+919171017533" data-aria-hi="अजय शर्मा को कॉल करें" data-aria-en="Call Ajay Sharma"><span class="hi">कॉल</span><span class="en">Call</span></a>
+                <a href="https://wa.me/919171017533" target="_blank" rel="noopener" data-aria-hi="अजय शर्मा को WhatsApp करें" data-aria-en="WhatsApp Ajay Sharma">WhatsApp</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <b><span class="hi">कार्तिक शर्मा</span><span class="en">Kartik Sharma</span></b>
+                <span>75662 11333</span>
+              </div>
+              <div class="pbtn">
+                <a href="tel:+917566211333" data-aria-hi="कार्तिक शर्मा को कॉल करें" data-aria-en="Call Kartik Sharma"><span class="hi">कॉल</span><span class="en">Call</span></a>
+                <a href="https://wa.me/917566211333" target="_blank" rel="noopener" data-aria-hi="कार्तिक शर्मा को WhatsApp करें" data-aria-en="WhatsApp Kartik Sharma">WhatsApp</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article class="shop shop-omsai">
+          <h3><span class="hi">ओम साई बिल्डिंग मटेरियल</span><span class="en">Om Sai Building Material</span></h3>
+          <p class="shop-what"><span class="hi">UltraTech सीमेंट के स्टॉकिस्ट। सीमेंट और बिल्डिंग मटेरियल एक ही दुकान पर।</span><span class="en">Stockist of UltraTech cement. Cement and building materials, all at one shop.</span></p>
+          <ul class="people">
+            <li>
+              <div>
+                <b><span class="hi">हेमन्त शर्मा</span><span class="en">Hemant Sharma</span></b>
+                <span>94254 02005</span>
+              </div>
+              <div class="pbtn">
+                <a href="tel:+919425402005" data-aria-hi="हेमन्त शर्मा को कॉल करें" data-aria-en="Call Hemant Sharma"><span class="hi">कॉल</span><span class="en">Call</span></a>
+                <a href="https://wa.me/919425402005" target="_blank" rel="noopener" data-aria-hi="हेमन्त शर्मा को WhatsApp करें" data-aria-en="WhatsApp Hemant Sharma">WhatsApp</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <b><span class="hi">अजय शर्मा</span><span class="en">Ajay Sharma</span></b>
+                <span>94250 03083</span>
+              </div>
+              <div class="pbtn">
+                <a href="tel:+919425003083" data-aria-hi="अजय शर्मा को कॉल करें" data-aria-en="Call Ajay Sharma"><span class="hi">कॉल</span><span class="en">Call</span></a>
+                <a href="https://wa.me/919425003083" target="_blank" rel="noopener" data-aria-hi="अजय शर्मा को WhatsApp करें" data-aria-en="WhatsApp Ajay Sharma">WhatsApp</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== PRODUCTS =============== -->
+  <!-- Naya saaman: koi ek <article class="good"> poora copy karke yahi paste karo, photo aur text badlo -->
+  <section class="section section-concrete" id="saman">
+    <div class="wrap">
+      <h2><span class="hi">घर के लिए जो भी चाहिए</span><span class="en">Everything for your home</span></h2>
+      <p class="intro"><span class="hi">नींव से लेकर बाथरूम तक का सामान। भाव और उपलब्धता के लिए फ़ोन कीजिए या नीचे रेट पूछ लीजिए।</span><span class="en">Material from the foundation to the bathroom. Call us or ask for rates below.</span></p>
+
+      <div class="goods">
+        <article class="good">
+          <img src="images/gk-tmt-godown.jpg" width="900" height="1200" alt="GK TMT सरिया के बोर्ड वाला गोदाम" data-alt-hi="GK TMT सरिया के बोर्ड वाला गोदाम" data-alt-en="Godown with the GK TMT steel bars board" loading="lazy" style="object-position:50% 30%">
+          <div class="good-body">
+            <h3><span class="hi">TMT सरिया</span><span class="en">TMT Steel Bars</span></h3>
+            <p><span class="hi">GK TMT बार। मकान, दुकान और स्लैब के काम के लिए।</span><span class="en">GK TMT bars for houses, shops and slabs.</span></p>
+          </div>
+        </article>
+        <article class="good">
+          <img src="images/ultratech-counter.jpg" width="900" height="1200" alt="UltraTech बिल्डिंग सोल्यूशन्स की पीली दीवार वाला काउंटर" data-alt-hi="UltraTech बिल्डिंग सोल्यूशन्स की पीली दीवार वाला काउंटर" data-alt-en="Counter with the yellow UltraTech Building Solutions wall" loading="lazy" style="object-position:50% 25%">
+          <div class="good-body">
+            <h3><span class="hi">सीमेंट और व्हाइट सीमेंट</span><span class="en">Cement &amp; White Cement</span></h3>
+            <p><span class="hi">UltraTech सीमेंट (हम स्टॉकिस्ट हैं) और JK व्हाइट सीमेंट।</span><span class="en">UltraTech cement (we are stockists) and JK White Cement.</span></p>
+          </div>
+        </article>
+        <article class="good">
+          <img src="images/sanitary-shelves.jpg" width="1500" height="1125" alt="सेनेटरी वेयर और वॉश बेसिन से भरी शेल्फ़" data-alt-hi="सेनेटरी वेयर और वॉश बेसिन से भरी शेल्फ़" data-alt-en="Shelves full of sanitaryware and wash basins" loading="lazy">
+          <div class="good-body">
+            <h3><span class="hi">सेनेटरी वेयर</span><span class="en">Sanitaryware</span></h3>
+            <p><span class="hi">वॉश बेसिन, सीट और बाथरूम का सामान, शोरूम में देखकर चुनिए।</span><span class="en">Wash basins, seats and bathroom items. Come and choose in our showroom.</span></p>
+          </div>
+        </article>
+        <article class="good">
+          <img src="images/jaquar-fittings.jpg" width="900" height="1200" alt="Jaquar शावर और नल का डिस्प्ले" data-alt-hi="Jaquar शावर और नल का डिस्प्ले" data-alt-en="Jaquar shower and tap display" loading="lazy" style="object-position:50% 40%">
+          <div class="good-body">
+            <h3><span class="hi">बाथ फिटिंग</span><span class="en">Bath Fittings</span></h3>
+            <p><span class="hi">Jaquar शावर, नल और फिटिंग।</span><span class="en">Jaquar showers, taps and fittings.</span></p>
+          </div>
+        </article>
+        <article class="good">
+          <img src="images/vectus-tank.jpg" width="1100" height="859" alt="Vectus वॉटर टैंक" data-alt-hi="Vectus वॉटर टैंक" data-alt-en="Vectus water tanks" loading="lazy">
+          <div class="good-body">
+            <h3><span class="hi">वॉटर टैंक</span><span class="en">Water Tanks</span></h3>
+            <p><span class="hi">Vectus वॉटर टैंक, अलग-अलग साइज़ में।</span><span class="en">Vectus water tanks in different sizes.</span></p>
+          </div>
+        </article>
+        <article class="good good-text">
+          <div class="good-body">
+            <h3><span class="hi">और भी सामान</span><span class="en">And more</span></h3>
+            <ul>
+              <li><span class="hi">टाइल्स</span><span class="en">Tiles</span></li>
+              <li><span class="hi">AAC ब्लॉक</span><span class="en">AAC Blocks</span></li>
+              <li><span class="hi">पाइप फिटिंग</span><span class="en">Pipe Fittings</span></li>
+            </ul>
+            <p><span class="hi">जो सामान लिस्ट में न दिखे, उसके लिए भी पूछिए।</span><span class="en">Not on the list? Ask us, we may have it.</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== RATE FORM =============== -->
+  <!-- Form ka message config.js ke "whatsapp" number par jaata hai. Shabd badalne ho to config.js mein "messages". -->
+  <section class="rate" id="rate">
+    <div class="wrap rate-grid">
+      <div class="rate-intro">
+        <h2><span class="hi">रेट WhatsApp पर पाइए</span><span class="en">Get rates on WhatsApp</span></h2>
+        <p><span class="hi">सामान चुनिए, कितना चाहिए लिखिए और भेज दीजिए। आपका संदेश बने-बनाए रूप में दुकान के WhatsApp पर खुलेगा, आपको बस भेजना है।</span><span class="en">Pick the items, write how much you need and send. Your message opens ready-made in WhatsApp. You only have to press send.</span></p>
+      </div>
+
+      <form id="rate-form" class="form" novalidate>
+        <fieldset>
+          <legend><span class="hi">कौन सा सामान चाहिए?</span><span class="en">What do you need?</span></legend>
+          <div class="chips">
+            <!-- Chip jodna: ek <label> poora copy karo. Hindi/English dono naam jo yahan likhoge wahi WhatsApp message mein jaayega. -->
+            <label><input type="checkbox" name="item"><span><span class="hi">TMT सरिया</span><span class="en">TMT steel bars</span></span></label>
+            <label><input type="checkbox" name="item"><span><span class="hi">सीमेंट</span><span class="en">Cement</span></span></label>
+            <label><input type="checkbox" name="item"><span><span class="hi">व्हाइट सीमेंट</span><span class="en">White cement</span></span></label>
+            <label><input type="checkbox" name="item"><span><span class="hi">टाइल्स</span><span class="en">Tiles</span></span></label>
+            <label><input type="checkbox" name="item"><span><span class="hi">सेनेटरी</span><span class="en">Sanitaryware</span></span></label>
+            <label><input type="checkbox" name="item"><span><span class="hi">पाइप फिटिंग</span><span class="en">Pipe fittings</span></span></label>
+            <label><input type="checkbox" name="item"><span><span class="hi">वॉटर टैंक</span><span class="en">Water tank</span></span></label>
+            <label><input type="checkbox" name="item"><span><span class="hi">AAC ब्लॉक</span><span class="en">AAC blocks</span></span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="detail"><span class="hi">कितना और कैसा चाहिए</span><span class="en">How much, and what kind</span></label>
+          <textarea id="detail" name="detail" rows="3" placeholder="जैसे: 12 mm सरिया 2 टन, UltraTech सीमेंट 100 बोरी" data-ph-hi="जैसे: 12 mm सरिया 2 टन, UltraTech सीमेंट 100 बोरी" data-ph-en="e.g. 12 mm steel bars 2 tonnes, UltraTech cement 100 bags"></textarea>
+        </div>
+
+        <div class="two">
+          <div class="field">
+            <label for="name"><span class="hi">आपका नाम</span><span class="en">Your name</span></label>
+            <input id="name" name="name" type="text" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="site"><span class="hi">साइट कहाँ है</span><span class="en">Where is your site</span></label>
+            <input id="site" name="site" type="text" placeholder="गाँव या मोहल्ला" data-ph-hi="गाँव या मोहल्ला" data-ph-en="Village or locality">
+          </div>
+        </div>
+
+        <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+        <button class="btn btn-yellow btn-wide" type="submit"><span class="hi">WhatsApp पर भेजें</span><span class="en">Send on WhatsApp</span></button>
+        <p class="send-to"><span class="hi">संदेश जाएगा: </span><span class="en">Message goes to: </span><b id="send-to"></b></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- =============== MALIK (config.js ke "owners" se banta hai) =============== -->
+  <!-- Dono ke card barabar. Hemant ji ki photo images/hemant-sharma.jpg naam se daalni hai. -->
+  <section class="section" id="malik">
+    <div class="wrap">
+      <h2><span class="hi">दुकान के मालिक</span><span class="en">Meet the owners</span></h2>
+      <p class="intro"><span class="hi">सामान और रेट की जानकारी के लिए ऊपर "सामान और रेट के लिए बात कीजिए" में दिए नंबरों पर संपर्क कीजिए।</span><span class="en">For product and rate details, please use the numbers listed in "Call us for products and rates" above.</span></p>
+      <div class="owners" id="owners"></div>
+    </div>
+  </section>
+
+  <!-- =============== PHOTOS: apne aap sarakti patti (config.js ke "gallery" se) =============== -->
+  <section class="section section-concrete" id="photos">
+    <div class="wrap">
+      <h2><span class="hi">दुकान की झलक</span><span class="en">A look inside</span></h2>
+      <p class="intro"><span class="hi">फ़ोटो को सरकाइए या बड़ा देखने के लिए उस पर दबाइए।</span><span class="en">Swipe through the photos or tap one to see it bigger.</span></p>
+    </div>
+    <div class="reel-wrap wrap">
+      <button type="button" class="g-btn g-prev" id="g-prev" data-aria-hi="पीछे" data-aria-en="Previous" aria-label="पीछे">&#8249;</button>
+      <div class="reel" id="reel" tabindex="0" aria-label="Photos"></div>
+      <button type="button" class="g-btn g-next" id="g-next" data-aria-hi="आगे" data-aria-en="Next" aria-label="आगे">&#8250;</button>
+    </div>
+  </section>
+
+  <!-- =============== ADDRESS =============== -->
+  <section class="section" id="pata">
+    <div class="wrap find">
+      <div>
+        <h2><span class="hi">दुकान का पता</span><span class="en">Shop address</span></h2>
+        <address>
+          <span class="hi">अजय ट्रेडर्स और<br>ओम साई बिल्डिंग मटेरियल<br>रेलवे स्टेशन रोड, मुलताई<br>ज़िला बैतूल, मध्य प्रदेश 460661</span>
+          <span class="en">Ajay Traders &amp;<br>Om Sai Building Material<br>Railway Station Road, Multai<br>District Betul, Madhya Pradesh 460661</span>
+        </address>
+        <p class="timing"><span class="hi">दुकान का समय जानने के लिए कॉल करें।</span><span class="en">Call us to know the shop timings.</span></p>
+        <div class="actions">
+          <a class="btn btn-dark" href="#" data-maps target="_blank" rel="noopener"><span class="hi">Google Maps पर रास्ता देखें</span><span class="en">Get directions on Google Maps</span></a>
+          <a class="btn btn-outline" href="#" data-call="main"><span class="hi">कॉल करें</span><span class="en">Call</span></a>
+        </div>
+      </div>
+      <div class="map">
+        <iframe title="Map: Om Sai Building Material, Multai" src="https://www.google.com/maps?q=Om+Sai+Building+Material+Multai+Madhya+Pradesh+460661&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="rebar" aria-hidden="true"></div>
+
+<!-- =============== FOOTER =============== -->
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-brand"><span class="hi">अजय ट्रेडर्स</span><span class="en">Ajay Traders</span></p>
+      <p><span class="hi">TMT सरिया, टाइल्स, सेनेटरी, व्हाइट सीमेंट, AAC ब्लॉक, पाइप फिटिंग, वॉटर टैंक।</span><span class="en">TMT steel bars, tiles, sanitaryware, white cement, AAC blocks, pipe fittings, water tanks.</span></p>
+      <p><span class="hi">अजय शर्मा</span><span class="en">Ajay Sharma</span> <a href="tel:+919171017533">91710 17533</a><br><span class="hi">कार्तिक शर्मा</span><span class="en">Kartik Sharma</span> <a href="tel:+917566211333">75662 11333</a></p>
+    </div>
+    <div>
+      <p class="foot-brand"><span class="hi">ओम साई बिल्डिंग मटेरियल</span><span class="en">Om Sai Building Material</span></p>
+      <p><span class="hi">UltraTech सीमेंट के स्टॉकिस्ट।</span><span class="en">Stockist of UltraTech cement.</span></p>
+      <p><span class="hi">हेमन्त शर्मा</span><span class="en">Hemant Sharma</span> <a href="tel:+919425402005">94254 02005</a><br><span class="hi">अजय शर्मा</span><span class="en">Ajay Sharma</span> <a href="tel:+919425003083">94250 03083</a></p>
+    </div>
+    <div>
+      <p class="foot-brand"><span class="hi">पता</span><span class="en">Address</span></p>
+      <p><span class="hi">रेलवे स्टेशन रोड, मुलताई, ज़िला बैतूल, मध्य प्रदेश 460661</span><span class="en">Railway Station Road, Multai, District Betul, Madhya Pradesh 460661</span></p>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <p>&copy; <span id="year">2026</span> <span class="hi">अजय ट्रेडर्स और ओम साई बिल्डिंग मटेरियल। सर्वाधिकार सुरक्षित।</span><span class="en">Ajay Traders &amp; Om Sai Building Material. All rights reserved.</span></p>
+  </div>
+</footer>
+
+<!-- Mobile par neeche chipki rehne wali bar. Number config.js se (mainPhone / whatsapp) -->
+<nav class="dock" aria-label="Quick contact">
+  <a href="#" data-call="main"><span class="hi">कॉल</span><span class="en">Call</span></a>
+  <a href="#" data-wa="main" target="_blank" rel="noopener">WhatsApp</a>
+  <a href="#" data-maps target="_blank" rel="noopener"><span class="hi">रास्ता</span><span class="en">Directions</span></a>
+</nav>
+
+<dialog id="viewer" aria-label="Photo">
+  <button type="button" class="close" data-aria-hi="फ़ोटो बंद करें" data-aria-en="Close photo" aria-label="फ़ोटो बंद करें"><span class="hi">बंद करें</span><span class="en">Close</span></button>
+  <img alt="">
+  <p class="cap"></p>
+</dialog>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
